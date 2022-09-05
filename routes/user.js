@@ -13,21 +13,6 @@ let users = {}
  *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *              name:
- *                 type: string
- *                 description: The user's name.
- *                 example: Jon Doe
- * 				password:
- *                 type: string
- *                 description: The user's password.
- *                 example: secret
- * 				email:
- *                 type: string
- *                 description: The user's email.
- *                 example: jon.doe@some.where
  *     responses:
  *       200:
  *         description: Creates a user.

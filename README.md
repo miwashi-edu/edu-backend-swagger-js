@@ -81,15 +81,15 @@ app.listen(PORT , ()=>{
  *           schema:
  *             type: object
  *             properties:
- *              name:
+ *               name:
  *                 type: string
  *                 description: The user's name.
  *                 example: Jon Doe
- * 				password:
+ *               password:
  *                 type: string
  *                 description: The user's password.
  *                 example: secret
- * 				email:
+ *               email:
  *                 type: string
  *                 description: The user's email.
  *                 example: jon.doe@some.where
