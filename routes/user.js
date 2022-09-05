@@ -3,7 +3,55 @@ const router = express.Router({})
 
 let users = {}
 
-//Create
+
+/**
+ * @openapi
+ * /user:
+ *   post:
+ *     description: Creates a user!
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *              name:
+ *                 type: string
+ *                 description: The user's name.
+ *                 example: Jon Doe
+ * 				password:
+ *                 type: string
+ *                 description: The user's password.
+ *                 example: secret
+ * 				email:
+ *                 type: string
+ *                 description: The user's email.
+ *                 example: jon.doe@some.where
+ *     responses:
+ *       200:
+ *         description: Creates a user.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       description: The user ID.
+ *                       example: 1
+ *                     name:
+ *                       type: string
+ *                       description: The user's name.
+ *                       example: Jone Doe
+ *                     email:
+ *                       type: string
+ *                       description: The user's name.
+ *                       example: Jone Doe
+ */
 router.post('/', async (req, res, next) => {
 	if(!req.body.hasOwnProperty('email')){
 		res.status(400).send('User email is mandatory!')
