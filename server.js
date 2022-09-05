@@ -1,4 +1,7 @@
 require('dotenv').config()
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const healthcheck = require('healthcheck')
@@ -9,7 +12,11 @@ const app = express()
 app.use(express.json())
 app.use('/health', require('./routes/healthcheck.js'));
 app.use('/user', require('./routes/user.js'));
-app.use('/topic', require('./routes/topics.js'));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+//const swaggerSpec = swaggerJSDoc(options);
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req ,res) => {
    headers={"cache-control":  "no-cache"}
